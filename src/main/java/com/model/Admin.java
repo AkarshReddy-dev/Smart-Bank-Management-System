@@ -1,0 +1,72 @@
+package com.model;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "admin")
+public class Admin {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long adminID;
+	
+	@Column(nullable = false)
+	private String name;
+	
+	@Column(nullable = false)
+	private String password;
+
+	public Admin() {
+		super();
+	}
+
+	public Admin(long adminID, String name, String password) {
+		super();
+		this.adminID = adminID;
+		this.name = name;
+		this.password = password;
+	}
+
+	public Admin(String name, String password) {
+		super();
+		this.name = name;
+		this.password = password;
+	}
+
+	public long getAdminID() {
+		return adminID;
+	}
+
+	public void setAdminID(long adminID) {
+		this.adminID = adminID;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	@Override
+	public String toString() {
+		return "Admin [adminID=" + adminID + ", name=" + name + ", password=" + password + "]";
+	}
+	
+	
+
+}
